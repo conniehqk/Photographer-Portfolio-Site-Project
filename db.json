@@ -1,0 +1,28 @@
+{
+	"images": [
+		{
+			"id": 1,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		},
+		{
+			"id": 2,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		},
+		{
+			"id": 3,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		},
+		{
+			"id": 4,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		},
+		{
+			"id": 5,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		},
+		{
+			"id": 6,
+			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+		}
+	]
+}
