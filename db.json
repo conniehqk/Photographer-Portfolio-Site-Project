@@ -25,9 +25,18 @@
 			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
 		}
 	],
-	"message": [
+	"messages": [
 		{
-			"id":1
+			"id": 1,
+			"formMessage": "Testing"
+		},
+		{
+			"id": 2,
+			"formMessage": "Hpoing to book you for my wedding."
+		},
+		{
+			"id": 3,
+			"formMessage": "Do you do dog portraiture?"
 		}
 	]
 }
