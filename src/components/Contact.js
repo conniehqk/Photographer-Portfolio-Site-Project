@@ -3,7 +3,7 @@ import { Container, Image, Row } from 'react-bootstrap';
 function Contact() {
 	return (
 		<Container>
-			<h1>Contact Page will look like this</h1>
+			<h1>Contact Page</h1>
 		</Container>
 	);
 }
