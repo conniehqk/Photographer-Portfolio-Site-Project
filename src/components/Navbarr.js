@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Navbarr() {
     return (
@@ -6,10 +7,9 @@ function Navbarr() {
             <Container>
                 <Navbar.Brand>Fancy Photography</Navbar.Brand>
                 <Nav className="justify-content-end">
-                <Nav.Link to="/about" exact>About</Nav.Link>
-                <Nav.Link to="/portfolio" exact>Portfolio</Nav.Link>
-                <Nav.Link to="/contact" exact>Contact</Nav.Link>
-                <Nav.Link>Add</Nav.Link>
+                <Nav.Link><NavLink to="/about" exact>About</NavLink></Nav.Link>
+                <Nav.Link><NavLink to="/portfolio" exact>Portfolio</NavLink></Nav.Link>
+                <Nav.Link><NavLink to="/contact" exact>Contact</NavLink></Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
