@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+
 import Navbarr from "./Navbarr";
 import Landing from "./Landing";
 import { Route, Switch } from "react-router-dom";
 import About from "./About";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
+import Manage from "./Manage"
+import "./App.css"
 
 function App() {
   
@@ -20,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/contact">
           <Contact />
+        </Route>
+        <Route exact path="/manage">
+          <Manage />
         </Route>
         <Route exact path="/">
           <Landing />

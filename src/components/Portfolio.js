@@ -1,4 +1,4 @@
-import { Container, Image, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 function Portfolio() {
     return(
