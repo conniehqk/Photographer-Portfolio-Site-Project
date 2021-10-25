@@ -6,48 +6,28 @@ function About() {
 			<h1>About Me</h1>
 			<Row>
 				<Col>
-					<Accordion>
-						<Accordion.Item eventKey="0">
-							<Accordion.Header>About Me</Accordion.Header>
-							<Accordion.Body>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua.
-								Lorem ipsum dolor sit amet consectetur
-								adipiscing. Morbi tristique senectus et netus et
-								malesuada fames. Ut consequat semper viverra nam
-								libero justo laoreet. Vestibulum lorem sed risus
-								ultricies tristique nulla aliquet. Commodo odio
-								aenean sed adipiscing diam donec adipiscing.
-								Aliquet risus feugiat in ante. Ultrices vitae
-								auctor eu augue ut lectus. Fusce ut placerat
-								orci nulla pellentesque dignissim. Volutpat
-								blandit aliquam etiam erat velit scelerisque in
-								dictum. Condimentum vitae sapien pellentesque
-								habitant morbi. Nunc faucibus a pellentesque sit
-								amet. Amet volutpat consequat mauris nunc congue
-								nisi vitae suscipit tellus. <br /> Sed odio
-								morbi quis commodo odio aenean sed. Arcu
-								bibendum at varius vel pharetra vel. Aliquam
-								etiam erat velit scelerisque in dictum non.
-								Tortor condimentum lacinia quis vel eros donec
-								ac odio. Ullamcorper velit sed ullamcorper morbi
-								tincidunt ornare massa eget. Platea dictumst
-								vestibulum rhoncus est pellentesque elit. Sed
-								viverra tellus in hac habitasse platea dictumst.
-								Libero volutpat sed cras ornare arcu dui vivamus
-								arcu. Convallis posuere morbi leo urna molestie
-								at elementum eu facilisis. Tincidunt nunc
-								pulvinar sapien et ligula ullamcorper. Nunc
-								consequat interdum varius sit amet. Pulvinar
-								elementum integer enim neque. Tristique nulla
-								aliquet enim tortor at auctor urna. Sit amet
-								purus gravida quis blandit turpis cursus in hac.
-								Lacinia quis vel eros donec ac. Orci porta non
-								pulvinar neque laoreet.
-							</Accordion.Body>
-						</Accordion.Item>
-					</Accordion>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore
+						magna aliqua. Lorem ipsum dolor sit amet consectetur
+						adipiscing. Morbi tristique senectus et netus et
+						malesuada fames. Ut consequat semper viverra nam libero
+						justo laoreet. Vestibulum lorem sed risus ultricies
+						tristique nulla aliquet. Commodo odio aenean sed
+						adipiscing diam donec adipiscing. Aliquet risus feugiat
+						in ante. Ultrices vitae auctor eu augue ut lectus. Fusce
+						ut placerat orci nulla pellentesque dignissim. Volutpat
+						blandit aliquam etiam erat velit scelerisque in dictum.
+						Condimentum vitae sapien pellentesque habitant morbi.
+						Nunc faucibus a pellentesque sit amet. Amet volutpat
+						consequat mauris nunc congue nisi vitae suscipit tellus.{' '}
+					</p>
+					<ul>
+						<h3>Education</h3>
+						<li>Harvard Photography School</li>
+						<li>Nasa Photography School</li>
+						<li>Kindergarten</li>
+					</ul>
 				</Col>
 				<Col>
 					<img
@@ -57,10 +37,16 @@ function About() {
 						alt="a person"
 					/>
 					<ul>
-						<h3>Education</h3>
-						<li>Harvard Photography School</li>
-						<li>Nasa Photography School</li>
-						<li>Kindergarten</li>
+						<li>
+							<a href="twitter.com">Twitter</a>
+						</li>
+
+						<li>
+							<a href="instagram.com">Instagram</a>
+						</li>
+						<li>
+							<a href="google.com">google</a>
+						</li>
 					</ul>
 				</Col>
 			</Row>
