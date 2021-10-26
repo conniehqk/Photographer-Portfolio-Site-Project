@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 function App() {
 	const [imageList, setImageList] = useState([]);
-	const [filterCategory,setFiltercategory]=useState([])
+	const [filterCategory, setFiltercategory] = useState([]);
 	const [submittedMessage, setSubmittedMessage] = useState([]);
 	const [formMessage, setFormMessage] = useState({
 		name: '',
@@ -21,9 +21,6 @@ function App() {
 		subject: '',
 		message: '',
 	});
-
-
-	
 
 	const userID = init('user_NACkm4Te0UR15Mzzi2NOS');
 	function handleSubmit(e) {
@@ -76,11 +73,11 @@ function App() {
 				setSubmittedMessage(data);
 				console.log(data);
 			});
-			fetch(" http://localhost:3000/images")
+		fetch(' http://localhost:3000/images')
 			.then((res) => res.json())
 			.then((data) => {
-			  console.log(data);
-			  setImageList(data);
+				console.log(data);
+				setImageList(data);
 			});
 	}, []);
 	// console.log(submittedMessage);
