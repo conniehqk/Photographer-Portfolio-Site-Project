@@ -1,4 +1,4 @@
-import { Accordion, Container, Col, Image, Row } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 
 function About() {
 	return (

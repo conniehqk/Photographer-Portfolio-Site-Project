@@ -61,7 +61,7 @@ function App() {
 	}
 
 	useEffect(() => {
-		fetch('http://localhost:3000/messages')
+		fetch('http://localhost:3000/messages/')
 			.then((r) => r.json())
 			.then((data) => {
 				setSubmittedMessage(data);

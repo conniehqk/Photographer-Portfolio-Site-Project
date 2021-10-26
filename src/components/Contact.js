@@ -82,14 +82,17 @@ function Contact({ handleSubmit, handleChange }) {
 					/>
 				</Form.Group>
 				<Form.Group>
+					<Form.Label>Type</Form.Label>
+
 					<Form.Select
 						onChange={handleChange}
 						aria-label="Default select example"
+						name="subject"
 					>
 						<option>Subject?</option>
-						<option name="wedding">Wedding</option>
-						<option name="family">Family</option>
-						<option name="Other">Other</option>
+						<option value="wedding">Wedding</option>
+						<option value="family">Family</option>
+						<option value="Other">Other</option>
 					</Form.Select>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="ControlTextarea1">

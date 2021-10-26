@@ -3,6 +3,7 @@ const Messages = ({ message }) => {
 		<>
 			<li>
 				<h3>{message.name}</h3>
+				<p>{message.subject}</p>
 				<p>{message.message}</p>
 			</li>
 		</>

@@ -29,20 +29,9 @@
     {
       "name": "Testing",
       "email": "test@gmail.com",
-      "message": "Testing 123",
+      "subject": "wedding",
+      "message": "I want a picture",
       "id": 1
-    },
-    {
-      "name": "Bekah Otis",
-      "email": "bekah@gmail.com",
-      "message": "Hey Sam",
-      "id": 2
-    },
-    {
-      "name": "Testing",
-      "email": "Testing@gmail.com",
-      "message": "HELLO!",
-      "id": 3
     }
   ]
 }
