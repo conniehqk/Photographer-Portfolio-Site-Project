@@ -3,22 +3,22 @@ import PhotoCard from "./PhotoCard";
 import { Container,FloatingLabel,Form} from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
-function Portfolio() {
-  const [imageList, setImageList] = useState([]);
+function Portfolio({imageList}) {
+  // const [imageList, setImageList] = useState([]);
   const [rating, setRating] = useState(null);
   const [comment,setComment]=useState('')
   const [submittedData, setSubmittedData] = useState([])
 
   console.log(rating);
-  console.log(comment)
-  useEffect(() => {
-    fetch(" http://localhost:3000/images")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setImageList(data);
-      });
-  }, []);
+  // console.log(comment)
+  // useEffect(() => {
+  //   fetch(" http://localhost:3000/images")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setImageList(data);
+  //     });
+  // }, []);
 
   const photoToRender = imageList.map((photo) => {
     return <PhotoCard photo={photo} />;
@@ -73,11 +73,7 @@ function Portfolio() {
         />
 
         <>
-        {/* <form onSubmit={handleSubmit}>
-        <input type="text" onChange={(e)=>setComment(e.target.value)} value={comment} />
         
-        <button type="submit">Submit</button>
-        </form> */}
         <Form onSubmit={handleSubmit}>
           <FloatingLabel controlId="floatingTextarea2" label="Comments"  >
             <Form.Control
