@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { Container, Image, Row } from "react-bootstrap";
+import PhotoCard from "./PhotoCard"
+import{Container, FloatingLabel,Form} from "react-bootstrap"
+import ReactStars from "react-rating-stars-component";
+
 
 function Portfolio() {
     const[imageList,setImageList]=useState([])
@@ -13,9 +16,49 @@ function Portfolio() {
        })
     },[])
 
+    const photoToRender=imageList.map((photo)=>{
+        return <PhotoCard  photo={photo}/>
+    })
+
+    const ratingChanged = (newRating) => {
+      console.log(newRating);
+    };
+    
+
     return(
         <Container>
-            <h1>Portfolio Page</h1>
+        <div className="checkbox">
+        <form>
+        <label>Wedding</label>
+        <input type="checkbox" name="weddings"></input>
+        <label>Portraits</label>
+        <input type="checkbox" name="portraits"></input>
+        <label>Martenity</label>
+        <input type="checkbox" name="maternity"></input>
+        </form>
+        </div>
+           <div className="cards">
+            {photoToRender}
+            </div>
+        <div>
+        <ReactStars
+    count={5}
+    onChange={ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+      />
+ 
+        <>
+  <FloatingLabel controlId="floatingTextarea2" label="Comments">
+    <Form.Control
+      as="textarea"
+      placeholder="Leave a comment here"
+      style={{ height: '100px', width:'600px'}}
+    />
+  </FloatingLabel>
+</>
+        </div>
+        
         </Container>
     )
 }
