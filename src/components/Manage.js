@@ -1,9 +1,10 @@
 import { Container, Row } from 'react-bootstrap';
-function Manage({ message }) {
-	const listItem = message.map((m) => {
-		console.log(m);
-		return <li>{m.formMessage}</li>;
-	});
+import Messages from './Messages';
+
+function Manage({ submittedMessage }) {
+	console.log(submittedMessage);
+	// const listItem =
+
 	return (
 		<Container className="p-5">
 			<h1>Manage Page</h1>
@@ -12,7 +13,9 @@ function Manage({ message }) {
 			</Row>
 			<Row>
 				<h3>Messages:</h3>
-				<ul>{listItem}</ul>
+				{submittedMessage.map((msg) => (
+					<Messages message={msg} />
+				))}
 			</Row>
 		</Container>
 	);

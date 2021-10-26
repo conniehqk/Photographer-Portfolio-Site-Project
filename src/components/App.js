@@ -16,33 +16,20 @@ function App() {
 	const [formMessage, setFormMessage] = useState({
 		name: '',
 		email: '',
+		subject: '',
 		message: '',
 	});
 
-	useEffect(() => {
-		fetch('http://localhost:3000/messages/')
-			.then((r) => r.json())
-			.then((data) => {
-				setSubmittedMessage(data);
-				console.log(data);
-			});
-	}, []);
-
 	const userID = init('user_NACkm4Te0UR15Mzzi2NOS');
 	function handleSubmit(e) {
-		fetch('http://localhost:3000/messages/', {
+		fetch('http://localhost:3000/messages', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+				Accept: 'application/json',
 			},
-			body: JSON.stringify(formMessage.message),
-		})
-			.then((r) => r.json())
-			.then((message) => {
-				// setSubmittedMessage(...submittedMessage, message);
-
-				console.log(message);
-			});
+			body: JSON.stringify(formMessage),
+		});
 
 		e.preventDefault();
 
@@ -73,6 +60,16 @@ function App() {
 		setFormMessage({ ...formMessage, [e.target.name]: e.target.value });
 	}
 
+	useEffect(() => {
+		fetch('http://localhost:3000/messages')
+			.then((r) => r.json())
+			.then((data) => {
+				setSubmittedMessage(data);
+				console.log(data);
+			});
+	}, []);
+	// console.log(submittedMessage);
+	console.log(formMessage);
 	return (
 		<div className="App">
 			<Navbarr />
@@ -91,7 +88,7 @@ function App() {
 					/>
 				</Route>
 				<Route exact path="/manage">
-					<Manage message={submittedMessage} />
+					<Manage submittedMessage={submittedMessage} />
 				</Route>
 				<Route exact path="/">
 					<Landing />

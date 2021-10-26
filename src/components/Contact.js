@@ -81,6 +81,17 @@ function Contact({ handleSubmit, handleChange }) {
 						placeholder="Enter email"
 					/>
 				</Form.Group>
+				<Form.Group>
+					<Form.Select
+						onChange={handleChange}
+						aria-label="Default select example"
+					>
+						<option>Subject?</option>
+						<option name="wedding">Wedding</option>
+						<option name="family">Family</option>
+						<option name="Other">Other</option>
+					</Form.Select>
+				</Form.Group>
 				<Form.Group className="mb-3" controlId="ControlTextarea1">
 					<Form.Label>Message</Form.Label>
 					<Form.Control

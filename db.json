@@ -1,42 +1,48 @@
 {
-	"images": [
-		{
-			"id": 1,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		},
-		{
-			"id": 2,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		},
-		{
-			"id": 3,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		},
-		{
-			"id": 4,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		},
-		{
-			"id": 5,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		},
-		{
-			"id": 6,
-			"image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-		}
-	],
-	"messages": [
-		{
-			"id": 1,
-			"formMessage": "Testing"
-		},
-		{
-			"id": 2,
-			"formMessage": "Hpoing to book you for my wedding."
-		},
-		{
-			"id": 3,
-			"formMessage": "Do you do dog portraiture?"
-		}
-	]
+  "images": [
+    {
+      "id": 1,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    },
+    {
+      "id": 2,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    },
+    {
+      "id": 3,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    },
+    {
+      "id": 4,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    },
+    {
+      "id": 5,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    },
+    {
+      "id": 6,
+      "image": "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+    }
+  ],
+  "messages": [
+    {
+      "name": "Testing",
+      "email": "test@gmail.com",
+      "message": "Testing 123",
+      "id": 1
+    },
+    {
+      "name": "Bekah Otis",
+      "email": "bekah@gmail.com",
+      "message": "Hey Sam",
+      "id": 2
+    },
+    {
+      "name": "Testing",
+      "email": "Testing@gmail.com",
+      "message": "HELLO!",
+      "id": 3
+    }
+  ]
 }
