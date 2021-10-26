@@ -49,7 +49,8 @@ function Contact({ handleSubmit, handleChange }) {
 						<option>Subject?</option>
 						<option value="wedding">Wedding</option>
 						<option value="family">Family</option>
-						<option value="Other">Other</option>
+						<option value="maternity">Maternity</option>
+						<option value="portraits">Portraits</option>
 					</Form.Select>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="ControlTextarea1">
