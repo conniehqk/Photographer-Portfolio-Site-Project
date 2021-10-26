@@ -65,6 +65,24 @@ function App() {
 	function handleChange(e) {
 		setFormMessage({ ...formMessage, [e.target.name]: e.target.value });
 	}
+	function handleManageFormChange(e) {
+		setImageList({ ...imageList, [e.target.name]: e.target.value });
+	}
+	function handleImageSubmit(e) {
+		e.preventDefault();
+		fetch('http://localhost:3000/images', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: JSON.stringify(imageList),
+		})
+			.then((r) => r.json())
+			.then((Image) => {
+				setImageList([...imageList, Image]);
+			});
+	}
 
 	useEffect(() => {
 		fetch('http://localhost:3000/messages/')
@@ -100,7 +118,11 @@ function App() {
 					/>
 				</Route>
 				<Route exact path="/manage">
-					<Manage submittedMessage={submittedMessage} />
+					<Manage
+						submittedMessage={submittedMessage}
+						handleManageFormChange={handleManageFormChange}
+						handleImageSubmit={handleImageSubmit}
+					/>
 				</Route>
 				<Route exact path="/">
 					<Landing />
