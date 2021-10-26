@@ -86,6 +86,7 @@ function App() {
 			.then((pic) => {
 				setImageList([...imageList, pic]);
 			});
+		e.target.reset();
 	}
 
 	useEffect(() => {
