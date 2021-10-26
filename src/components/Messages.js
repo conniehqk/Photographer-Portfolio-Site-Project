@@ -1,12 +1,9 @@
 const Messages = ({ message }) => {
 	return (
-		<>
-			<li>
-				<h3>{message.name}</h3>
-				<p>{message.subject}</p>
-				<p>{message.message}</p>
-			</li>
-		</>
+		<div class="message-blue">
+			<p class="message-content">{message.message}</p>
+			<div class="message-from">From: {message.name} ({message.email})</div>
+		</div>
 	);
 };
 

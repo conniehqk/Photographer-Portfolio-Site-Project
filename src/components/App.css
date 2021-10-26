@@ -41,3 +41,37 @@
     background: url('https://i.pinimg.com/originals/03/5f/4e/035f4e26e14569e6f353f2d4d0c6d752.gif') no-repeat center fixed;
     background-size: cover;
 }
+
+.message-blue {
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color:lightgrey;
+    text-align: left;
+    font: 400 .9em 'Open Sans', sans-serif;
+    border-radius: 10px;
+}
+.message-blue:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 14px solid lightgrey;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    top: 1px;
+    left: -15px;
+}
+
+.message-blue:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid lightgrey;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    top: 0px;
+    left: -17px;
+}
