@@ -29,7 +29,11 @@ function App() {
 				Accept: 'application/json',
 			},
 			body: JSON.stringify(formMessage),
-		});
+		})
+			.then((r) => r.json())
+			.then((msg) => {
+				setSubmittedMessage([...submittedMessage, msg]);
+			});
 
 		e.preventDefault();
 
