@@ -12,7 +12,7 @@ import { Form } from 'react-bootstrap';
 import { useEffect } from 'react';
 
 function App() {
-	const [submittedMessage, setSubmittedMessage] = useState('');
+	const [submittedMessage, setSubmittedMessage] = useState([]);
 	const [formMessage, setFormMessage] = useState({
 		name: '',
 		email: '',

@@ -3,49 +3,6 @@ import { Container, Row, Form, Col, Button } from 'react-bootstrap';
 // import { send, init } from 'emailjs-com';
 
 function Contact({ handleSubmit, handleChange }) {
-	// const [formMessage, setFormMessage] = useState({
-	// 	firstName: '',
-	// 	lastName: '',
-	// 	email: '',
-	// 	message: '',
-	// });
-	// const userID = init('user_NACkm4Te0UR15Mzzi2NOS');
-	// function handleSubmit(e) {
-	// 	e.preventDefault();
-	// 	const templateParams = {
-	// 		to_name: 'Connie',
-	// 		from_name: `${formMessage.firstName} ${formMessage.lastName} (${formMessage.email})`,
-	// 		message: formMessage.message,
-	// 	};
-	// 	// send(
-	// 	// 	'service_44cpah8',
-	// 	// 	'template_2c9kkfq',
-	// 	// 	templateParams,
-	// 	// 	userID
-	// 	// ).then(
-	// 	// 	(result) => {
-	// 	// 		console.log(result.text);
-	// 	// 		alert('Your message has been sent!');
-	// 	// 	},
-	// 	// 	(error) => {
-	// 	// 		console.log(error.text);
-	// 	// 		alert('Something went wrong, please try again.');
-	// 	// 	}
-	// 	// );
-	// 	fetch('http://localhost:3000/messages/', {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 		},
-	// 		body: JSON.stringify(formMessage.message),
-	// 	})
-	// 		.then((r) => r.json())
-	// 		.then((data) => console.log(data));
-	// 	e.target.reset();
-	// }
-	// function handleChange(e) {
-	// 	setFormMessage({ ...formMessage, [e.target.name]: e.target.value });
-	// }
 	return (
 		<Container className="p-5">
 			<h1>Let's Chat!</h1>
