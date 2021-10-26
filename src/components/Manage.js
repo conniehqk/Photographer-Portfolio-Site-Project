@@ -14,7 +14,7 @@ function Manage({
 			</h1>
 			<Row className="mb-3">
 				<h3>Add new work to portfolio:</h3>
-				<Form handleImageSubmit={handleImageSubmit}>
+				<Form onSubmit={handleImageSubmit}>
 					<Form.Group className="mb-3">
 						<Form.Label>New Image</Form.Label>
 						<Form.Control

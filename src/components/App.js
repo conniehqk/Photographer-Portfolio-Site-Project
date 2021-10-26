@@ -12,6 +12,7 @@ import { Form } from 'react-bootstrap';
 import { useEffect } from 'react';
 
 function App() {
+	const [image, setImage] = useState([]);
 	const [imageList, setImageList] = useState([]);
 	const [filterCategory, setFiltercategory] = useState([]);
 	const [submittedMessage, setSubmittedMessage] = useState([]);
@@ -66,8 +67,11 @@ function App() {
 		setFormMessage({ ...formMessage, [e.target.name]: e.target.value });
 	}
 	function handleManageFormChange(e) {
-		setImageList({ ...imageList, [e.target.name]: e.target.value });
+		// console.log(e.target.name, e.target.value);
+		setImage({ ...image, [e.target.name]: e.target.value });
 	}
+	console.log('New Image Obj:', image);
+
 	function handleImageSubmit(e) {
 		e.preventDefault();
 		fetch('http://localhost:3000/images', {
@@ -76,11 +80,11 @@ function App() {
 				'Content-Type': 'application/json',
 				Accept: 'application/json',
 			},
-			body: JSON.stringify(imageList),
+			body: JSON.stringify(image),
 		})
 			.then((r) => r.json())
-			.then((Image) => {
-				setImageList([...imageList, Image]);
+			.then((pic) => {
+				setImageList([...imageList, pic]);
 			});
 	}
 
@@ -89,17 +93,17 @@ function App() {
 			.then((r) => r.json())
 			.then((data) => {
 				setSubmittedMessage(data);
-				console.log(data);
+				// console.log(data);
 			});
 		fetch(' http://localhost:3000/images')
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				setImageList(data);
 			});
 	}, []);
 	// console.log(submittedMessage);
-	console.log(formMessage);
+	// console.log(formMessage);
 	return (
 		<div className="App">
 			<Navbarr />
