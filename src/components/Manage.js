@@ -1,4 +1,4 @@
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Alert } from 'react-bootstrap';
 import { Form } from 'react-bootstrap/cjs';
 import Messages from './Messages';
 
@@ -6,7 +6,9 @@ function Manage({
 	handleImageSubmit,
 	submittedMessage,
 	handleManageFormChange,
+	imageSubmitSuccess
 }) {
+	
 	return (
 		<Container className="p-5">
 			<h1>
@@ -14,6 +16,7 @@ function Manage({
 			</h1>
 			<Row className="mb-3">
 				<h3>Add new work to portfolio:</h3>
+				{imageSubmitSuccess?<Alert variant="success">Success!</Alert>:null}
 				<Form onSubmit={handleImageSubmit}>
 					<Form.Group className="mb-3">
 						<Form.Label>New Image</Form.Label>

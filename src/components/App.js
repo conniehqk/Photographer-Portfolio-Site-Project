@@ -16,6 +16,8 @@ function App() {
 	const [imageList, setImageList] = useState([]);
 	const [filterCategory, setFiltercategory] = useState([]);
 	const [submittedMessage, setSubmittedMessage] = useState([]);
+	const [imageSubmitSuccess, setImageSubmitSuccess] = useState(false)
+	const [messageSubmitSuccess, setMessageSubmitSuccess] = useState(false)
 	const [formMessage, setFormMessage] = useState({
 		name: '',
 		email: '',
@@ -36,6 +38,7 @@ function App() {
 			.then((r) => r.json())
 			.then((msg) => {
 				setSubmittedMessage([...submittedMessage, msg]);
+				setMessageSubmitSuccess(messageSubmitSuccess=>!messageSubmitSuccess)
 			});
 
 		e.preventDefault();
@@ -85,6 +88,7 @@ function App() {
 			.then((r) => r.json())
 			.then((pic) => {
 				setImageList([...imageList, pic]);
+				setImageSubmitSuccess(imageSubmitSuccess=>!imageSubmitSuccess)
 			});
 		e.target.reset();
 	}
@@ -120,6 +124,7 @@ function App() {
 						handleSubmit={handleSubmit}
 						formMessage={formMessage}
 						handleChange={handleChange}
+						messageSubmitSuccess={messageSubmitSuccess}
 					/>
 				</Route>
 				<Route exact path="/manage">
@@ -127,6 +132,7 @@ function App() {
 						submittedMessage={submittedMessage}
 						handleManageFormChange={handleManageFormChange}
 						handleImageSubmit={handleImageSubmit}
+						imageSubmitSuccess={imageSubmitSuccess}
 					/>
 				</Route>
 				<Route exact path="/">
