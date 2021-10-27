@@ -13,7 +13,13 @@ import { useEffect } from 'react';
 
 function App() {
 	const [imageList, setImageList] = useState([]);
-	const [filterCategory,setFiltercategory]=useState([])
+	const [checked, setChecked] = useState({
+		Wedding: false,
+		Portraits:false,
+		Maternity:false,
+		Family:false,
+	})
+	
 	const [submittedMessage, setSubmittedMessage] = useState([]);
 	const [formMessage, setFormMessage] = useState({
 		name: '',
@@ -22,8 +28,6 @@ function App() {
 		message: '',
 	});
 
-
-	
 
 	const userID = init('user_NACkm4Te0UR15Mzzi2NOS');
 	function handleSubmit(e) {
@@ -83,6 +87,30 @@ function App() {
 			  setImageList(data);
 			});
 	}, []);
+
+
+    function handleClick(e){
+		setChecked({
+			...checked,
+			[e.target.name]:e.target.checked
+		})
+	  }
+	 
+	 
+
+	
+    const displayphoto=Object.keys(checked).filter((x)=>checked[x]===true)
+	console.log(displayphoto)
+
+	const toRender=()=>{
+		if(displayphoto.length===0){
+			return imageList
+		}
+		return imageList.filter((photo)=>displayphoto.includes(photo.subject))
+	}
+    
+	
+
 	// console.log(submittedMessage);
 	console.log(formMessage);
 	return (
@@ -93,7 +121,7 @@ function App() {
 					<About />
 				</Route>
 				<Route exact path="/portfolio">
-					<Portfolio imageList={imageList} />
+					<Portfolio imageList={toRender()} checked={checked} handleClick={handleClick} />
 				</Route>
 				<Route exact path="/contact">
 					<Contact

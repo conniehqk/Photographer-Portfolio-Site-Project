@@ -3,12 +3,12 @@ import PhotoCard from "./PhotoCard";
 import { Container,FloatingLabel,Form} from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
-function Portfolio({imageList}) {
+function Portfolio({imageList,checked,handleClick}) {
   // const [imageList, setImageList] = useState([]);
   const [rating, setRating] = useState(null);
-  const [comment,setComment]=useState('')
+  const [comment,setComment]=useState('wedding')
   const [submittedData, setSubmittedData] = useState([])
-
+ 
   console.log(rating);
   // console.log(comment)
   // useEffect(() => {
@@ -36,8 +36,9 @@ function Portfolio({imageList}) {
     }
     const dataarray=[...submittedData,newObj]
     setSubmittedData(dataarray)
-    console.log("newObje", newObj)
   }
+  
+ 
 
   const renderCommentsAndrating=submittedData.map((item)=>{
     return(
@@ -53,13 +54,13 @@ function Portfolio({imageList}) {
       <div className="checkbox">
         <form>
           <label>Wedding</label>
-          <input type="checkbox" name="weddings"></input>
+          <input type="checkbox" value="Wedding" name="Wedding" checked={checked.Wedding} name="Wedding"  onChange={handleClick}></input>
           <label>Portraits</label>
-          <input type="checkbox" name="portraits"></input>
+          <input type="checkbox" value="Portraits" name="Portraits" checked={checked.Portraits} name="Portraits" onChange={handleClick}></input>
           <label>Martenity</label>
-          <input type="checkbox" name="maternity"></input>
+          <input type="checkbox" value="Maternity" name="Maternity" checked={checked.Maternity} name="Maternity"  onChange={handleClick}></input>
           <label>Family</label>
-          <input type="checkbox" name="family"></input>
+          <input type="checkbox" value="Family" name="Family" checked={checked.Family} name="Family"  onChange={handleClick}></input>
         </form>
       </div>
       <div className="cards">{photoToRender}</div>
