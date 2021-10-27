@@ -14,7 +14,7 @@ function Landing() {
           </Row>
           <Row className="justify-content-center px-5">
             <Col md="auto" className="px-5">
-              <p id="intro">Hello, my name is John Anderson, thank you for visiting. I am a NYC-based photographer with 10+ years of experience. I specialize in wedding, newborns, family outings, pet, etc. Feel free to check out my previous work and learn more about me. When you are ready, let's talk about what you need!</p>
+              <p id="intro">Hello, my name is John Anderson, thank you for visiting. I am a NYC-based photographer with 10+ years of experience. I specialize photo shooting wedding, portraits, family, maternity, etc. Feel free to check out my previous work. When you are ready, let's talk about what you need!</p>
             </Col>
           </Row>
         </Container>

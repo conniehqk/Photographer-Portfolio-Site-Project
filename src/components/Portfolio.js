@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PhotoCard from './PhotoCard';
-import { Container, FloatingLabel, Form } from 'react-bootstrap';
+import { Container, FloatingLabel, Form, Row } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 
 function Portfolio({imageList,checked,handleClick}) {
@@ -9,16 +9,6 @@ function Portfolio({imageList,checked,handleClick}) {
   const [comment,setComment]=useState('wedding')
   const [submittedData, setSubmittedData] = useState([])
  
-  console.log(rating);
-  // console.log(comment)
-  // useEffect(() => {
-  //   fetch(" http://localhost:3000/images")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setImageList(data);
-  //     });
-  // }, []);
   useEffect(() => {
     fetch('http://localhost:3000/comments')
         .then((r) => r.json())
@@ -51,20 +41,21 @@ function Portfolio({imageList,checked,handleClick}) {
 			.then((comment) => {
 				setSubmittedData([...submittedData, comment]);
 			});
+    e.target.reset()
 	};
 
 	const renderCommentsAndrating = submittedData.map((item) => {
 		return (
 			<div>
 				<h3>Rating:{item.rating} ⭐</h3>
-				<p>MyComment: {item.comment} </p>
+				<p>Comment: {item.comment} </p>
 			</div>
 		);
 	});
 
   return (
     <Container>
-      <div className="checkbox">
+      <Row className="checkbox p-3">
         <form>
           <label>Wedding</label>
           <input type="checkbox" value="Wedding" name="Wedding" checked={checked.Wedding} name="Wedding"  onChange={handleClick}></input>
@@ -75,9 +66,11 @@ function Portfolio({imageList,checked,handleClick}) {
           <label>Family</label>
           <input type="checkbox" value="Family" name="Family" checked={checked.Family} name="Family"  onChange={handleClick}></input>
         </form>
-      </div>
+      </Row>
       <div className="cards">{photoToRender}</div>
-      <div>
+      <hr />
+      <Row className='p-3'>
+        <h2>Please leave a review:</h2>
         <ReactStars
           count={5}
           value={rating}
@@ -85,9 +78,6 @@ function Portfolio({imageList,checked,handleClick}) {
           size={24}
           activeColor="#ffd700"
         />
-
-        <>
-        
         <Form onSubmit={handleSubmit}>
           <FloatingLabel controlId="floatingTextarea2" label="Comments"  >
             <Form.Control
@@ -97,12 +87,13 @@ function Portfolio({imageList,checked,handleClick}) {
               style={{ height: "100px", width: "600px" }}
               onChange={(e)=>setComment(e.target.value)}
             />
-            <button>Submit</button>
+            <button className="mt-2">Submit</button>
           </FloatingLabel>
           </Form>
-        </>
-      </div>
+      </Row>
+      <Row className='p-3'>
       {renderCommentsAndrating}
+      </Row>
     </Container>
   );
 }

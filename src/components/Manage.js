@@ -48,8 +48,8 @@ function Manage({
 			<hr />
 			<Row>
 				<h3>Messages I have received:</h3>
-				{submittedMessage.map((msg) => (
-					<Messages message={msg} />
+				{submittedMessage.map((msg,index) => (
+					<Messages key={index} message={msg} />
 				))}
 			</Row>
 		</Container>

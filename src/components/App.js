@@ -8,7 +8,6 @@ import Manage from './Manage';
 import './App.css';
 import { send, init } from 'emailjs-com';
 import { useState } from 'react';
-import { Form } from 'react-bootstrap';
 import { useEffect } from 'react';
 
 function App() {
@@ -50,25 +49,25 @@ function App() {
 		e.preventDefault();
 
 		const templateParams = {
-			to_name: 'Connie',
+			to_name: 'Photographer',
 			from_name: `${formMessage.name} (${formMessage.email})`,
 			message: formMessage.message,
 		};
-		// send(
-		// 	'service_44cpah8',
-		// 	'template_2c9kkfq',
-		// 	templateParams,
-		// 	userID
-		// ).then(
-		// 	(result) => {
-		// 		console.log(result.text);
-		// 		alert('Your message has been sent!');
-		// 	},
-		// 	(error) => {
-		// 		console.log(error.text);
-		// 		alert('Something went wrong, please try again.');
-		// 	}
-		// );
+		send(
+			'service_44cpah8',
+			'template_2c9kkfq',
+			templateParams,
+			userID
+		).then(
+			(result) => {
+				console.log(result.text);
+				alert('Your message has been sent!');
+			},
+			(error) => {
+				console.log(error.text);
+				alert('Something went wrong, please try again.');
+			}
+		);
 
 		e.target.reset();
 	}
@@ -79,7 +78,6 @@ function App() {
 		// console.log(e.target.name, e.target.value);
 		setImage({ ...image, [e.target.name]: e.target.value });
 	}
-	console.log('New Image Obj:', image);
 
 	function handleImageSubmit(e) {
 		e.preventDefault();
@@ -126,7 +124,6 @@ function App() {
 
 	
     const displayphoto=Object.keys(checked).filter((x)=>checked[x]===true)
-	console.log(displayphoto)
 
 	const toRender=()=>{
 		if(displayphoto.length===0){
@@ -135,10 +132,7 @@ function App() {
 		return imageList.filter((photo)=>displayphoto.includes(photo.subject))
 	}
     
-	
 
-	// console.log(submittedMessage);
-	// console.log(formMessage);
 	return (
 		<div className="App">
 			<Navbarr />
