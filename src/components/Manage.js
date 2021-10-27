@@ -1,22 +1,36 @@
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Alert } from 'react-bootstrap';
 import { Form } from 'react-bootstrap/cjs';
 import Messages from './Messages';
 
-function Manage({ submittedMessage }) {
-
+function Manage({
+	handleImageSubmit,
+	submittedMessage,
+	handleManageFormChange,
+	imageSubmitSuccess
+}) {
+	
 	return (
 		<Container className="p-5">
-			<h1><ins>Manage My Content</ins></h1>
+			<h1>
+				<ins>Manage My Content</ins>
+			</h1>
 			<Row className="mb-3">
 				<h3>Add new work to portfolio:</h3>
-				<Form>
+				{imageSubmitSuccess?<Alert variant="success">Success!</Alert>:null}
+				<Form onSubmit={handleImageSubmit}>
 					<Form.Group className="mb-3">
 						<Form.Label>New Image</Form.Label>
-						<Form.Control type="text" placeholder="Enter Image URL" />
+						<Form.Control
+							onChange={handleManageFormChange}
+							type="text"
+							name="image"
+							placeholder="Enter Image URL"
+						/>
 					</Form.Group>
 					<Form.Group className="mb-3">
 						<Form.Label>Image Category</Form.Label>
 						<Form.Select
+							onChange={handleManageFormChange}
 							name="subject"
 						>
 							<option>Subject</option>
@@ -31,7 +45,7 @@ function Manage({ submittedMessage }) {
 					</Button>
 				</Form>
 			</Row>
-			<hr/>
+			<hr />
 			<Row>
 				<h3>Messages I have received:</h3>
 				{submittedMessage.map((msg) => (

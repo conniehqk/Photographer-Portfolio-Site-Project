@@ -12,6 +12,7 @@ import { Form } from 'react-bootstrap';
 import { useEffect } from 'react';
 
 function App() {
+	const [image, setImage] = useState([]);
 	const [imageList, setImageList] = useState([]);
 	const [checked, setChecked] = useState({
 		Wedding: false,
@@ -21,13 +22,14 @@ function App() {
 	})
 	
 	const [submittedMessage, setSubmittedMessage] = useState([]);
+	const [imageSubmitSuccess, setImageSubmitSuccess] = useState(false)
+	const [messageSubmitSuccess, setMessageSubmitSuccess] = useState(false)
 	const [formMessage, setFormMessage] = useState({
 		name: '',
 		email: '',
 		subject: '',
 		message: '',
 	});
-
 
 	const userID = init('user_NACkm4Te0UR15Mzzi2NOS');
 	function handleSubmit(e) {
@@ -42,6 +44,7 @@ function App() {
 			.then((r) => r.json())
 			.then((msg) => {
 				setSubmittedMessage([...submittedMessage, msg]);
+				setMessageSubmitSuccess(messageSubmitSuccess=>!messageSubmitSuccess)
 			});
 
 		e.preventDefault();
@@ -72,19 +75,42 @@ function App() {
 	function handleChange(e) {
 		setFormMessage({ ...formMessage, [e.target.name]: e.target.value });
 	}
+	function handleManageFormChange(e) {
+		// console.log(e.target.name, e.target.value);
+		setImage({ ...image, [e.target.name]: e.target.value });
+	}
+	console.log('New Image Obj:', image);
+
+	function handleImageSubmit(e) {
+		e.preventDefault();
+		fetch('http://localhost:3000/images', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: JSON.stringify(image),
+		})
+			.then((r) => r.json())
+			.then((pic) => {
+				setImageList([...imageList, pic]);
+				setImageSubmitSuccess(imageSubmitSuccess=>!imageSubmitSuccess)
+			});
+		e.target.reset();
+	}
 
 	useEffect(() => {
 		fetch('http://localhost:3000/messages/')
 			.then((r) => r.json())
 			.then((data) => {
 				setSubmittedMessage(data);
-				console.log(data);
+				// console.log(data);
 			});
-			fetch(" http://localhost:3000/images")
+		fetch(' http://localhost:3000/images')
 			.then((res) => res.json())
 			.then((data) => {
-			  console.log(data);
-			  setImageList(data);
+				// console.log(data);
+				setImageList(data);
 			});
 	}, []);
 
@@ -112,7 +138,7 @@ function App() {
 	
 
 	// console.log(submittedMessage);
-	console.log(formMessage);
+	// console.log(formMessage);
 	return (
 		<div className="App">
 			<Navbarr />
@@ -128,10 +154,16 @@ function App() {
 						handleSubmit={handleSubmit}
 						formMessage={formMessage}
 						handleChange={handleChange}
+						messageSubmitSuccess={messageSubmitSuccess}
 					/>
 				</Route>
 				<Route exact path="/manage">
-					<Manage submittedMessage={submittedMessage} />
+					<Manage
+						submittedMessage={submittedMessage}
+						handleManageFormChange={handleManageFormChange}
+						handleImageSubmit={handleImageSubmit}
+						imageSubmitSuccess={imageSubmitSuccess}
+					/>
 				</Route>
 				<Route exact path="/">
 					<Landing />

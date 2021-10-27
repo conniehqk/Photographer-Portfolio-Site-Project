@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import PhotoCard from "./PhotoCard";
-import { Container,FloatingLabel,Form} from "react-bootstrap";
-import ReactStars from "react-rating-stars-component";
+import { useEffect, useState } from 'react';
+import PhotoCard from './PhotoCard';
+import { Container, FloatingLabel, Form } from 'react-bootstrap';
+import ReactStars from 'react-rating-stars-component';
 
 function Portfolio({imageList,checked,handleClick}) {
   // const [imageList, setImageList] = useState([]);
@@ -19,35 +19,48 @@ function Portfolio({imageList,checked,handleClick}) {
   //       setImageList(data);
   //     });
   // }, []);
+  useEffect(() => {
+    fetch('http://localhost:3000/comments')
+        .then((r) => r.json())
+        .then((data) => setSubmittedData(data));
 
-  const photoToRender = imageList.map((photo) => {
-    return <PhotoCard photo={photo} />;
-  });
+}, []);
+	const photoToRender = imageList.map((photo) => {
+		return <PhotoCard photo={photo} />;
+	});
 
-  const ratingChanged = (data) => {
-    setRating(data);
-  };
+	const ratingChanged = (data) => {
+		setRating(data);
+	};
 
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    const newObj={
-      rating:rating,
-      comment:comment
-    }
-    const dataarray=[...submittedData,newObj]
-    setSubmittedData(dataarray)
-  }
-  
- 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const newObj = {
+			rating: rating,
+			comment: comment,
+		};
+		fetch('http://localhost:3000/comments', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: JSON.stringify(newObj),
+		})
+			.then((r) => r.json())
+			.then((comment) => {
+				setSubmittedData([...submittedData, comment]);
+			});
+	};
 
-  const renderCommentsAndrating=submittedData.map((item)=>{
-    return(
-      <div>
-        <h3>Rating:{item.rating} ⭐</h3>
-        <p>MyComment: {item.comment} </p>
-      </div>
-    )
-  })
+	const renderCommentsAndrating = submittedData.map((item) => {
+		return (
+			<div>
+				<h3>Rating:{item.rating} ⭐</h3>
+				<p>MyComment: {item.comment} </p>
+			</div>
+		);
+	});
 
   return (
     <Container>

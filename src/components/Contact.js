@@ -1,11 +1,12 @@
 // import { useState } from 'react';
-import { Container, Row, Form, Col, Button } from 'react-bootstrap';
+import { Container, Row, Form, Col, Button, Alert } from 'react-bootstrap';
 // import { send, init } from 'emailjs-com';
 
-function Contact({ handleSubmit, handleChange }) {
+function Contact({ handleSubmit, handleChange, messageSubmitSuccess }) {
 	return (
 		<Container className="p-5">
 			<h1>Let's Chat!</h1>
+			{messageSubmitSuccess?<Alert variant="success">Success!</Alert>:null}
 			<Form onSubmit={handleSubmit}>
 				<Row className="mb-3">
 					<Form.Group as={Col} controlId="formFirstName">
