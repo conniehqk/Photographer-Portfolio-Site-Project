@@ -122,12 +122,12 @@
     },
     {
       "image": "https://www.todaysparent.com/wp-content/uploads/2019/08/weirdest-stock-pregnancy-photos-tutu-baby-doll-1280x960.jpg",
-      "subject": "maternity",
+      "subject": "Maternity",
       "id": 24
     },
     {
       "image": "https://i1.wp.com/boingboing.net/wp-content/uploads/2018/10/Maternity-shoot-lead.jpg?fit=2048%2C1365&ssl=1",
-      "subject": "maternity",
+      "subject": "Maternity",
       "id": 25
     }
   ],
@@ -162,6 +162,11 @@
       "rating": 1,
       "comment": "dude forgot to bring his camera",
       "id": 4
+    },
+    {
+      "rating": 3,
+      "comment": "Meh",
+      "id": 5
     }
   ]
 }

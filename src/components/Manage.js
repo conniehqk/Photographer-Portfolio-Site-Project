@@ -34,10 +34,10 @@ function Manage({
 							name="subject"
 						>
 							<option>Subject</option>
-							<option value="wedding">Wedding</option>
-							<option value="family">Family</option>
-							<option value="maternity">Maternity</option>
-							<option value="portraits">Portraits</option>
+							<option value="Wedding">Wedding</option>
+							<option value="Family">Family</option>
+							<option value="Maternity">Maternity</option>
+							<option value="Portraits">Portraits</option>
 						</Form.Select>
 					</Form.Group>
 					<Button variant="dark" type="submit">
