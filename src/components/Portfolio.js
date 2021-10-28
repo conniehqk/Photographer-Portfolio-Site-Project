@@ -62,6 +62,7 @@ function Portfolio({ imageList, checked, handleClick, loggedIn }) {
 				<p>Comment: {item.comment} </p>
 				{loggedIn ? (
 					<Button
+						className="mb-3"
 						variant="danger"
 						size="sm"
 						onClick={() => handleDeleteComment(item)}

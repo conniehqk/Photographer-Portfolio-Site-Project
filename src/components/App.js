@@ -61,21 +61,21 @@ function App() {
 			from_name: `${formMessage.name} (${formMessage.email})`,
 			message: formMessage.message,
 		};
-		send(
-			'service_44cpah8',
-			'template_2c9kkfq',
-			templateParams,
-			userID
-		).then(
-			(result) => {
-				console.log(result.text);
-				alert('Your message has been sent!');
-			},
-			(error) => {
-				console.log(error.text);
-				alert('Something went wrong, please try again.');
-			}
-		);
+		// send(
+		// 	'service_44cpah8',
+		// 	'template_2c9kkfq',
+		// 	templateParams,
+		// 	userID
+		// ).then(
+		// 	(result) => {
+		// 		console.log(result.text);
+		// 		alert('Your message has been sent!');
+		// 	},
+		// 	(error) => {
+		// 		console.log(error.text);
+		// 		alert('Something went wrong, please try again.');
+		// 	}
+		// );
 
 		e.target.reset();
 	}
@@ -141,6 +141,17 @@ function App() {
 			displayphoto.includes(photo.subject)
 		);
 	};
+	const handleDeleteMessage = (doomedMessage) => {
+		console.log(doomedMessage);
+		fetch(`http://localhost:3000/messages/${doomedMessage.id}`, {
+			method: 'DELETE',
+		}).then(() => {
+			const filteredMessages = submittedMessage.filter(
+				(message) => message.id !== doomedMessage.id
+			);
+			setSubmittedMessage(filteredMessages);
+		});
+	};
 
 	return (
 		<div className="App">
@@ -167,6 +178,7 @@ function App() {
 				</Route>
 				<Route exact path="/manage">
 					<Manage
+						handleDeleteMessage={handleDeleteMessage}
 						submittedMessage={submittedMessage}
 						handleManageFormChange={handleManageFormChange}
 						handleImageSubmit={handleImageSubmit}

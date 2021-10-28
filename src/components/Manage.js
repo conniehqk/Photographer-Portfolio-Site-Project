@@ -7,6 +7,7 @@ function Manage({
 	submittedMessage,
 	handleManageFormChange,
 	imageSubmitSuccess,
+	handleDeleteMessage,
 }) {
 	return (
 		<Container className="p-5">
@@ -50,7 +51,11 @@ function Manage({
 			<Row>
 				<h3>Messages I have received:</h3>
 				{submittedMessage.map((msg, index) => (
-					<Messages key={index} message={msg} />
+					<Messages
+						handleDeleteMessage={handleDeleteMessage}
+						key={index}
+						message={msg}
+					/>
 				))}
 			</Row>
 		</Container>
