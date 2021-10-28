@@ -6,9 +6,8 @@ function Manage({
 	handleImageSubmit,
 	submittedMessage,
 	handleManageFormChange,
-	imageSubmitSuccess
+	imageSubmitSuccess,
 }) {
-	
 	return (
 		<Container className="p-5">
 			<h1>
@@ -16,7 +15,9 @@ function Manage({
 			</h1>
 			<Row className="mb-3">
 				<h3>Add new work to portfolio:</h3>
-				{imageSubmitSuccess?<Alert variant="success">Success!</Alert>:null}
+				{imageSubmitSuccess ? (
+					<Alert variant="success">Success!</Alert>
+				) : null}
 				<Form onSubmit={handleImageSubmit}>
 					<Form.Group className="mb-3">
 						<Form.Label>New Image</Form.Label>
@@ -48,7 +49,7 @@ function Manage({
 			<hr />
 			<Row>
 				<h3>Messages I have received:</h3>
-				{submittedMessage.map((msg,index) => (
+				{submittedMessage.map((msg, index) => (
 					<Messages key={index} message={msg} />
 				))}
 			</Row>
