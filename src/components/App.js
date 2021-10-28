@@ -11,18 +11,24 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 function App() {
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	function handleLogin() {
+		setLoggedIn((loggedIn) => !loggedIn);
+	}
+
 	const [image, setImage] = useState([]);
 	const [imageList, setImageList] = useState([]);
 	const [checked, setChecked] = useState({
 		Wedding: false,
-		Portraits:false,
-		Maternity:false,
-		Family:false,
-	})
-	
+		Portraits: false,
+		Maternity: false,
+		Family: false,
+	});
+
 	const [submittedMessage, setSubmittedMessage] = useState([]);
-	const [imageSubmitSuccess, setImageSubmitSuccess] = useState(false)
-	const [messageSubmitSuccess, setMessageSubmitSuccess] = useState(false)
+	const [imageSubmitSuccess, setImageSubmitSuccess] = useState(false);
+	const [messageSubmitSuccess, setMessageSubmitSuccess] = useState(false);
 	const [formMessage, setFormMessage] = useState({
 		name: '',
 		email: '',
@@ -43,7 +49,9 @@ function App() {
 			.then((r) => r.json())
 			.then((msg) => {
 				setSubmittedMessage([...submittedMessage, msg]);
-				setMessageSubmitSuccess(messageSubmitSuccess=>!messageSubmitSuccess)
+				setMessageSubmitSuccess(
+					(messageSubmitSuccess) => !messageSubmitSuccess
+				);
 			});
 
 		e.preventDefault();
@@ -92,7 +100,9 @@ function App() {
 			.then((r) => r.json())
 			.then((pic) => {
 				setImageList([...imageList, pic]);
-				setImageSubmitSuccess(imageSubmitSuccess=>!imageSubmitSuccess)
+				setImageSubmitSuccess(
+					(imageSubmitSuccess) => !imageSubmitSuccess
+				);
 			});
 		e.target.reset();
 	}
@@ -112,36 +122,40 @@ function App() {
 			});
 	}, []);
 
-
-    function handleClick(e){
+	function handleClick(e) {
 		setChecked({
 			...checked,
-			[e.target.name]:e.target.checked
-		})
-	  }
-	 
-	 
-
-	
-    const displayphoto=Object.keys(checked).filter((x)=>checked[x]===true)
-
-	const toRender=()=>{
-		if(displayphoto.length===0){
-			return imageList
-		}
-		return imageList.filter((photo)=>displayphoto.includes(photo.subject))
+			[e.target.name]: e.target.checked,
+		});
 	}
-    
+
+	const displayphoto = Object.keys(checked).filter(
+		(x) => checked[x] === true
+	);
+
+	const toRender = () => {
+		if (displayphoto.length === 0) {
+			return imageList;
+		}
+		return imageList.filter((photo) =>
+			displayphoto.includes(photo.subject)
+		);
+	};
 
 	return (
 		<div className="App">
-			<Navbarr />
+			<Navbarr handleLogin={handleLogin} loggedIn={loggedIn} />
 			<Switch>
 				<Route exact path="/about">
 					<About />
 				</Route>
 				<Route exact path="/portfolio">
-					<Portfolio imageList={toRender()} checked={checked} handleClick={handleClick} />
+					<Portfolio
+						loggedIn={loggedIn}
+						imageList={toRender()}
+						checked={checked}
+						handleClick={handleClick}
+					/>
 				</Route>
 				<Route exact path="/contact">
 					<Contact

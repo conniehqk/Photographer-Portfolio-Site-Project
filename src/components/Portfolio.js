@@ -3,7 +3,7 @@ import PhotoCard from './PhotoCard';
 import { Button, Container, FloatingLabel, Form, Row } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 
-function Portfolio({ imageList, checked, handleClick }) {
+function Portfolio({ imageList, checked, handleClick, loggedIn }) {
 	// const [imageList, setImageList] = useState([]);
 	const [rating, setRating] = useState(null);
 	const [comment, setComment] = useState('wedding');
@@ -60,13 +60,15 @@ function Portfolio({ imageList, checked, handleClick }) {
 			<div>
 				<h3>Rating:{item.rating} ⭐</h3>
 				<p>Comment: {item.comment} </p>
-				<Button
-					variant="danger"
-					size="sm"
-					onClick={() => handleDeleteComment(item)}
-				>
-					Delete
-				</Button>
+				{loggedIn ? (
+					<Button
+						variant="danger"
+						size="sm"
+						onClick={() => handleDeleteComment(item)}
+					>
+						Delete
+					</Button>
+				) : null}
 			</div>
 		);
 	});

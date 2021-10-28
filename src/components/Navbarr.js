@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-function Navbarr() {
-	const [loggedIn, setLoggedIn] = useState(false);
-	function handleLogin() {
-		setLoggedIn((loggedIn) => !loggedIn);
-	}
+function Navbarr({ handleLogin, loggedIn }) {
+	// const [loggedIn, setLoggedIn] = useState(false);
+	// function handleLogin() {
+	// 	setLoggedIn((loggedIn) => !loggedIn);
+	// }
 	function loggedInView() {
 		return (
 			<>
