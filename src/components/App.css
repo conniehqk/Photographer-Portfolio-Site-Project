@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Noto+Sans&display=swap');
+
 #navbar a {
 	color: aliceblue;
 	text-decoration: none;
+}
+
+#about {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 20px;
 }
 
 #landingCard {
